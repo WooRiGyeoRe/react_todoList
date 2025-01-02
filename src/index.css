@@ -92,7 +92,7 @@ button:focus-visible {
   flex-direction: column;      /* 수직 방향으로 정렬 */
   justify-content: center;     /* 수직 중앙 정렬 */
   align-items: center;         /* 수평 중앙 정렬 */
-  height: 100vh;               /* 화면 전체 높이 */
+  height: 100vh; /* 화면 전체 높이 */
 }
 
 .header1 {
@@ -134,8 +134,9 @@ button:focus-visible {
   flex-direction: column;      /* 세로로 배치 */
   justify-content: center;     /* 세로로 중앙 정렬 */
   align-items: center;         /* 가로로 중앙 정렬 */
-  height: 50vh;               /* 화면 전체 높이를 차지 */
+  height: 60vh;                /* 화면 전체 높이를 차지 */
   width: 100%;                 /* 화면 너비 전체 사용 */
+  position: relative;          /* 아이콘을 절대 위치로 배치하기 위해 부모 요소에 relative 추가 */
 }
 
 .header2 {
@@ -173,12 +174,7 @@ button:focus-visible {
 .todo_inputForm::placeholder {
   color: #bdbdbd;  
 }
-
-.cat_jelly1_Icon {
-  cursor: pointer;  /* 클릭 가능한 커서 추가 */
-  margin-left: 10px;  
-}
-
+ 
 
 /* to do List */
 
@@ -186,14 +182,17 @@ button:focus-visible {
 
 /* 아이콘 */
 .puddingIcon {
-  width: 70px;  
-  height: 70px;  
-  margin-left: 10px;  
+  position: absolute;  /* 절대 위치로 배치 */
+  top: 10px;            
+  left: 10px;           
+  width: 60px;         
+  height: 60px;        
 }
 
 .cat_jelly1_Icon {
   width: 50px;  
   height: 50px; 
+  cursor: pointer;  /* 클릭 가능한 커서 추가 */
   margin-left: 15px;  
 }
 
