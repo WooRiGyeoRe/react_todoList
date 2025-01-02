@@ -4,6 +4,7 @@ import './App.css';
 import Home from './lib/home/Home';
 import TodoInput from './lib/todo/TodoInput';
 import TodoList from './lib/todo/TodoList';
+import Calendar from './lib/calendar/Calendar';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/todo" element={<TodoInput />} />
-        {/* <Route path="/calendar" element={<Calendar />} /> */}
+        <Route path="/calendar" element={<Calendar />} />
       </Routes>
     </BrowserRouter>
   );
