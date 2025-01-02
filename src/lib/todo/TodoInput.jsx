@@ -1,9 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TodoInput = () => {
+  const puddingIcon_Click = () => {
+    alert('홈으로 돌아갑니다 : )');
+  };
+
   return (
     /* 할일 입력창 */
     <div className="todo_container1">
+      <div>
+        <Link to="/">
+          <img
+            src="assets/icons/pudding.png"
+            alt="puddingIcon"
+            className="puddingIcon"
+            onClick={() => {
+              puddingIcon_Click();
+            }}
+          />
+        </Link>
+      </div>
       <div className="header2">To Do List</div>
       <div className="rectangleBox"></div>
       <div className="todo_container2">
