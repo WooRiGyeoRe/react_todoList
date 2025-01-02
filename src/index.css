@@ -177,8 +177,9 @@ button:focus-visible {
  
 
 /* to do List */
-
-
+.page_link1 {
+ 
+}
 
 /* 아이콘 */
 .puddingIcon {
@@ -189,9 +190,17 @@ button:focus-visible {
   height: 60px;        
 }
 
+.cookieIcon {
+  position: absolute;  /* 절대 위치로 배치 */
+  top: 15px;            
+  left: 90px;           
+  width: 50px;         
+  height: 50px;        
+}
+
 .cat_jelly1_Icon {
-  width: 50px;  
-  height: 50px; 
+  width: 45px;  
+  height: 45px; 
   cursor: pointer;  /* 클릭 가능한 커서 추가 */
   margin-left: 15px;  
 }
