@@ -1,5 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import TodoList from './TodoList';
 
 const TodoInput = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const TodoInput = () => {
 
   // 쿠키 아이콘 클릭
   const cookieIcon_Click = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const isConfirmed = window.confirm('달력 페이지로 이동하시겠습니까?');
     if (isConfirmed) {
       console.log('달력 페이지로 이동');
@@ -31,6 +32,11 @@ const TodoInput = () => {
       console.log('달력 페이지 이동 취소');
     }
   };
+
+  // 할일 입력창
+  const [inputValue, setInputValue] = useState('');
+  const [todoList, setTodoList] = useState([]);
+  //const
 
   return (
     /* 할일 입력창 */
@@ -57,20 +63,105 @@ const TodoInput = () => {
       <div className="rectangleBox"></div>
       <div className="todo_container2">
         <input
+          value={inputValue}
           type="text"
           className="todo_inputForm"
           placeholder="할 일을 입력하고, 냥젤리를 눌러주세요 : )"
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
         />
         <img
           src="assets/icons/cat_jelly1.png"
           alt="cat_jelly1_Icon"
           className="cat_jelly1_Icon"
           onClick={() => {
-            console.log('입력 완료!');
+            // console.log('입력 완료!')
+            if (!inputValue) {
+              // falsy
+              // ''
+              // '' === false
+              console.log('입력하셈');
+              return;
+            }
+            if (inputValue.length < 3) {
+              console.log('3글자 이상 입력하셈');
+              return;
+            }
+            setTodoList((prev) => {
+              const arr = [...prev];
+              const todo = {
+                id: arr.length + 1,
+                content: inputValue,
+                done: false,
+              };
+              arr.push(todo);
+              return arr;
+            });
+            setInputValue('');
           }}
         />
       </div>
       {/* 할일 목록 */}
+      {/* <TodoList /> */}
+      <div className="todo_list">
+        {
+          // 배열을 반복하면서 가공해서 새 배열을 반환.
+          todoList.map((el, index) => {
+            return (
+              <div id={el.id} key={index}>
+                <span>{el.content}</span>
+                <span
+                  onClick={() => {
+                    const content = prompt('수정할 내용');
+                    setTodoList((prev) => {
+                      const t = prev.find((target) => target.id === el.id);
+                      const newContent = {
+                        ...t,
+                        content,
+                      };
+                      return prev.map((t) => {
+                        return t.id === el.id ? newContent : t;
+                      });
+                    });
+                  }}
+                >
+                  - OOOOOOO -
+                </span>
+                <span
+                  onClick={() => {
+                    setTodoList((prev) => {
+                      const arr = [...prev].filter(
+                        (target) => target.id !== el.id,
+                      );
+                      return arr;
+                    });
+                  }}
+                >
+                  {' '}
+                  - XXXXXXX -
+                </span>
+
+                <span
+                  onClick={() => {
+                    const target = todoList.find((t) => t.id === el.id);
+                    const newContent = {
+                      ...target,
+                      done: !target.done,
+                    };
+                    const newArr = todoList.map((t) =>
+                      t.id === el.id ? newContent : t,
+                    );
+                    setTodoList(newArr);
+                  }}
+                >
+                  {el.done ? '-- 함 --' : '-- 안함 --'}
+                </span>
+              </div>
+            );
+          })
+        }
+      </div>
     </div>
   );
 };

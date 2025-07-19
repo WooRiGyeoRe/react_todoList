@@ -132,9 +132,9 @@ button:focus-visible {
 .todo_container1 {
   display: flex;               
   flex-direction: column;      /* 세로로 배치 */
-  justify-content: center;     /* 세로로 중앙 정렬 */
+  justify-content: flex-start; /* 자식 요소를 위에서부터 배치 */
   align-items: center;         /* 가로로 중앙 정렬 */
-  height: 60vh;                /* 화면 전체 높이를 차지 */
+  height: auto; /* 부모 높이를 자식 크기에 맞춤 */
   width: 100%;                 /* 화면 너비 전체 사용 */
   position: relative;          /* 아이콘을 절대 위치로 배치하기 위해 부모 요소에 relative 추가 */
 }
@@ -145,19 +145,22 @@ button:focus-visible {
   font-size: 40px;
   color: #313A46;
   text-align: center;          /* 텍스트 중앙 정렬 */
+  margin-top: 150px;
 }
 
 .rectangleBox {
   width: 500px;  
   height: 5px;  
   background-color: #c2a58e;
-  margin: 10px 0;              
+  margin: 10px 0;             
+  flex-shrink: 0; /* flex 축소 방지 */ 
 }
 
 .todo_container2 {
   display: flex;
   align-items: center;      /* 세로로 중앙 정렬 */
   justify-content: center;  /* 가로로 중앙 정렬 */
+  margin-bottom: 50px;
 }
 
 .todo_inputForm {
@@ -177,9 +180,15 @@ button:focus-visible {
  
 
 /* to do List */
-.page_link1 {
- 
+.todo_list{
+  width: 500px;
+  height: 300px;
+  background-color: #ffffff;
+  border-radius: 15px;                         /* 모서리를 둥글기 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 그림자 효과 */
 }
+
+ 
 
 /* 아이콘 */
 .puddingIcon {
