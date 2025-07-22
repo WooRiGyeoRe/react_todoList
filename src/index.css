@@ -69,8 +69,6 @@ button:focus-visible {
   }
 } */
 
-
-
 @font-face {
   font-family: 'Ghanachoco';
   src: url('./assets/fonts/Ghanachocolate.ttf') format('woff');
@@ -85,13 +83,12 @@ button:focus-visible {
   font-style: normal;
 }
 
-
 /* home */
 .home_container1 {
   display: flex;
-  flex-direction: column;      /* 수직 방향으로 정렬 */
-  justify-content: center;     /* 수직 중앙 정렬 */
-  align-items: center;         /* 수평 중앙 정렬 */
+  flex-direction: column; /* 수직 방향으로 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center; /* 수평 중앙 정렬 */
   height: 100vh; /* 화면 전체 높이 */
 }
 
@@ -99,9 +96,9 @@ button:focus-visible {
   font-family: 'Ownglyph_ParkDaHyun';
   font-weight: 500;
   font-size: 50px;
-  margin-bottom: 50px; 
-  width: fit-content;       /* 콘텐츠 크기에 맞춰 너비를 자동으로 조정 */
-  color: #313A46;
+  margin-bottom: 50px;
+  width: fit-content; /* 콘텐츠 크기에 맞춰 너비를 자동으로 조정 */
+  color: #313a46;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,55 +108,55 @@ button:focus-visible {
   font-family: 'Ownglyph_ParkDaHyun';
   font-weight: 400;
   font-size: 40px;
-  margin-bottom: 50px; 
-  width: fit-content;       /* 콘텐츠 크기에 맞춰 너비를 자동으로 조정 */
-  color: #313A46;
+  margin-bottom: 50px;
+  width: fit-content; /* 콘텐츠 크기에 맞춰 너비를 자동으로 조정 */
+  color: #313a46;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .home_link {
-  text-decoration: none;     /* 밑줄 제거 */
-  color: inherit;     
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit;
 }
 
 .home_link:hover {
-  color: #c2a58e;          
+  color: #c2a58e;
 }
 
 /* to do Input */
 .todo_container1 {
-  display: flex;               
-  flex-direction: column;      /* 세로로 배치 */
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
   justify-content: flex-start; /* 자식 요소를 위에서부터 배치 */
-  align-items: center;         /* 가로로 중앙 정렬 */
+  align-items: center; /* 가로로 중앙 정렬 */
   height: auto; /* 부모 높이를 자식 크기에 맞춤 */
-  width: 100%;                 /* 화면 너비 전체 사용 */
-  position: relative;          /* 아이콘을 절대 위치로 배치하기 위해 부모 요소에 relative 추가 */
+  width: 100%; /* 화면 너비 전체 사용 */
+  position: relative; /* 아이콘을 절대 위치로 배치하기 위해 부모 요소에 relative 추가 */
 }
 
 .header2 {
   font-family: 'Ownglyph_ParkDaHyun';
   font-weight: 500;
   font-size: 40px;
-  color: #313A46;
-  text-align: center;          /* 텍스트 중앙 정렬 */
+  color: #313a46;
+  text-align: center; /* 텍스트 중앙 정렬 */
   margin-top: 150px;
 }
 
 .rectangleBox {
-  width: 500px;  
-  height: 5px;  
+  width: 500px;
+  height: 5px;
   background-color: #c2a58e;
-  margin: 10px 0;             
-  flex-shrink: 0; /* flex 축소 방지 */ 
+  margin: 10px 0;
+  flex-shrink: 0; /* flex 축소 방지 */
 }
 
 .todo_container2 {
   display: flex;
-  align-items: center;      /* 세로로 중앙 정렬 */
-  justify-content: center;  /* 가로로 중앙 정렬 */
+  align-items: center; /* 세로로 중앙 정렬 */
+  justify-content: center; /* 가로로 중앙 정렬 */
   margin-bottom: 50px;
 }
 
@@ -168,70 +165,72 @@ button:focus-visible {
   height: 30px;
   margin-top: 10px;
   border: 1px solid #e2e2e2;
-  padding-left: 10px; /* 입력칸 한칸 띄우기 */  
+  padding-left: 10px; /* 입력칸 한칸 띄우기 */
   font-family: 'Ownglyph_ParkDaHyun', sans-serif;
   font-size: 20px;
-  color: #313A46;
+  color: #313a46;
 }
 
 .todo_inputForm::placeholder {
-  color: #bdbdbd;  
+  color: #bdbdbd;
 }
- 
 
 /* to do List */
-.todo_list{
+.todo_list {
   width: 500px;
   height: 300px;
   background-color: #ffffff;
-  border-radius: 15px;                         /* 모서리를 둥글기 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 그림자 효과 */
-}
+  border-radius: 15px; /* 모서리를 둥글기 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 
- 
+  /* 폰트 */
+  font-family: 'Ownglyph_ParkDaHyun';
+  /* font-size: 20px;
+  color: #313A46; */
+
+  /* 내부 여백 추가 */
+  padding: 30px 30px;
+  box-sizing: border-box; /* 패딩 포함 너비 계산 (안하면 글자가 넘칠 수 있음) */
+}
 
 /* 아이콘 */
 .puddingIcon {
-  position: absolute;  /* 절대 위치로 배치 */
-  top: 10px;            
-  left: 10px;           
-  width: 60px;         
-  height: 60px;        
+  position: absolute; /* 절대 위치로 배치 */
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
 }
 
 .cookieIcon {
-  position: absolute;  /* 절대 위치로 배치 */
-  top: 15px;            
-  left: 90px;           
-  width: 50px;         
-  height: 50px;        
+  position: absolute; /* 절대 위치로 배치 */
+  top: 15px;
+  left: 90px;
+  width: 50px;
+  height: 50px;
 }
 
 .cat_jelly1_Icon {
-  width: 45px;  
-  height: 45px; 
-  cursor: pointer;  /* 클릭 가능한 커서 추가 */
-  margin-left: 15px;  
+  width: 45px;
+  height: 45px;
+  cursor: pointer; /* 클릭 가능한 커서 추가 */
+  margin-left: 15px;
 }
 
 .cat_jelly1_Icon:active {
   transform: scale(0.9);
 }
 
-
 .cat_jelly2_Icon {
-  width: 40px;  
-  height: 40px; 
-  margin-right: 15px;  
-  color: #313A46;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  color: #313a46;
 }
-
-
 
 /* :root => 루트 요소인 <html> */
 :root {
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87); */
   background-color: #f8f8e9;
- 
 }

@@ -22,16 +22,16 @@ const TodoInput = () => {
   };
 
   // 쿠키 아이콘 클릭
-  const cookieIcon_Click = (e) => {
-    e.preventDefault();
-    const isConfirmed = window.confirm('달력 페이지로 이동하시겠습니까?');
-    if (isConfirmed) {
-      console.log('달력 페이지로 이동');
-      navigate('/calendar');
-    } else {
-      console.log('달력 페이지 이동 취소');
-    }
-  };
+  // const cookieIcon_Click = (e) => {
+  //   e.preventDefault();
+  //   const isConfirmed = window.confirm('달력 페이지로 이동하시겠습니까?');
+  //   if (isConfirmed) {
+  //     console.log('달력 페이지로 이동');
+  //     navigate('/calendar');
+  //   } else {
+  //     console.log('달력 페이지 이동 취소');
+  //   }
+  // };
 
   // 할일 입력창
   const [inputValue, setInputValue] = useState('');
@@ -50,14 +50,14 @@ const TodoInput = () => {
             onClick={(e) => puddingIcon_Click(e)}
           />
         </Link>
-        <Link to="/calendar">
+        {/* <Link to="/calendar">
           <img
             src="assets/icons/cookie.png"
             alt="cookieIcon"
             className="cookieIcon"
             onClick={(e) => cookieIcon_Click(e)}
           />
-        </Link>
+        </Link> */}
       </div>
       <div className="header2">To Do List</div>
       <div className="rectangleBox"></div>
@@ -65,6 +65,7 @@ const TodoInput = () => {
         <input
           value={inputValue}
           type="text"
+          // maxLength={25} /* 글자수 제한 */
           className="todo_inputForm"
           placeholder="할 일을 입력하고, 냥젤리를 눌러주세요 : )"
           onChange={(e) => {
@@ -81,11 +82,11 @@ const TodoInput = () => {
               // falsy
               // ''
               // '' === false
-              console.log('입력하셈');
+              console.log('내용을 입력하세요!');
               return;
             }
             if (inputValue.length < 3) {
-              console.log('3글자 이상 입력하셈');
+              console.log('세글자 이상 입력하세요!');
               return;
             }
             setTodoList((prev) => {
@@ -114,6 +115,7 @@ const TodoInput = () => {
                 <span
                   onClick={() => {
                     const content = prompt('수정할 내용');
+                    if (content === null) return; // 취소 누르면 아무 작업도 안 함
                     setTodoList((prev) => {
                       const t = prev.find((target) => target.id === el.id);
                       const newContent = {
@@ -126,7 +128,15 @@ const TodoInput = () => {
                     });
                   }}
                 >
-                  - OOOOOOO -
+                  {' '}
+                  <span>
+                    <img
+                      src="assets/icons/edit.png"
+                      alt="수정"
+                      width="20"
+                      height="20"
+                    />
+                  </span>{' '}
                 </span>
                 <span
                   onClick={() => {
@@ -139,7 +149,14 @@ const TodoInput = () => {
                   }}
                 >
                   {' '}
-                  - XXXXXXX -
+                  <span>
+                    <img
+                      src="assets/icons/delete.png"
+                      alt="삭제"
+                      width="20"
+                      height="20"
+                    />
+                  </span>{' '}
                 </span>
 
                 <span
@@ -155,7 +172,24 @@ const TodoInput = () => {
                     setTodoList(newArr);
                   }}
                 >
-                  {el.done ? '-- 함 --' : '-- 안함 --'}
+                  {/* {el.done ? '-- ✅ --' : '-- ❎ --'}  */}
+                  <span>
+                    {el.done ? (
+                      <img
+                        src="assets/icons/no.png"
+                        alt="완료"
+                        width="20"
+                        height="20"
+                      />
+                    ) : (
+                      <img
+                        src="assets/icons/ok.png"
+                        alt="미완료"
+                        width="20"
+                        height="20"
+                      />
+                    )}
+                  </span>
                 </span>
               </div>
             );

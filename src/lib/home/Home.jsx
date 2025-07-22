@@ -12,11 +12,11 @@ const Home = () => {
           ♤ To Do List
         </Link>
       </div>
-      <div className="title1">
+      {/* <div className="title1">
         <Link to={'calendar'} className="home_link">
           ♧ Calendar
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
